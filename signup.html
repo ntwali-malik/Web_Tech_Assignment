@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Form Validation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm" onsubmit="return validateSignupForm()">
+            <div class="form-group">
+                <label for="signupName">Name:</label>
+                <input type="text" id="signupName" name="signupName" required>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email:</label>
+                <input type="email" id="signupEmail" name="signupEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password:</label>
+                <input type="password" id="signupPassword" name="signupPassword" required>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p class="login-link">Already have an account? <a href="index.html">Login here</a>.</p>
+    </div>
+<script>
+    function validateSignupForm() {
+    var name = document.getElementById('signupName').value;
+    var email = document.getElementById('signupEmail').value;
+    var password = document.getElementById('signupPassword').value;
+
+    if (name.trim() === '' || email.trim() === '' || password.trim() === '') {
+        alert('Please fill in all fields.');
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>

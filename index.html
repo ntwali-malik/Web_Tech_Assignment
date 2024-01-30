@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript Form Validation</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return validateLoginForm()">
+            <div class="form-group">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="loginEmail">
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p class="forgot-password"><a href="forgot-password.html">Forgot password?</a></p>
+        <p class="signup-link">Don't have an account? <a href="signup.html">Sign up here</a>.</p>
+    </div>
+    <script>
+        function validateLoginForm() {
+    var email = document.getElementById('loginEmail').value;
+    var password = document.getElementById('loginPassword').value;
+
+    // Check if email is empty
+    if (email.trim() === '') {
+        alert('Please enter your email.');
+        return false;
+    }
+
+    // Check if email format is valid
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+    }
+
+    // Check if password is empty
+    if (password.trim() === '') {
+        alert('Please enter your password.');
+        return false;
+    }
+
+    // Check if password meets minimum length requirement
+    if (password.length < 6) {
+        alert('Password must be at least 6 characters long.');
+        return false;
+    }
+
+    // Additional checks such as password complexity requirements can be added here
+
+    // If all validations pass, return true to allow form submission
+    return true;
+}
+
+    </script>
+</body>
+</html>
